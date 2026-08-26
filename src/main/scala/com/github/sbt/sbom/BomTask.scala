@@ -5,14 +5,12 @@
 package com.github.sbt.sbom
 
 import com.github.sbt.sbom.PluginConstants.*
-import org.apache.commons.io.FileUtils
 import org.cyclonedx.Version
 import org.cyclonedx.generators.BomGeneratorFactory
 import org.cyclonedx.model.Bom
 import org.cyclonedx.parsers.{ JsonParser, XmlParser }
 import sbt.*
 
-import java.nio.charset.Charset
 import scala.collection.JavaConverters.*
 
 final case class BomTaskProperties(
@@ -46,10 +44,6 @@ abstract class BomTask[T](protected val properties: BomTaskProperties) {
     }
     logBomInfo(params, bom)
     bomText
-  }
-
-  protected def writeToFile(destFile: File, text: String): Unit = {
-    FileUtils.write(destFile, text, Charset.forName("UTF-8"), false)
   }
 
   protected def validateBomFile(bomFile: File): Unit = {
