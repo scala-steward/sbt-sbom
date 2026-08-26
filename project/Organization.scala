@@ -2,10 +2,10 @@
 //
 // SPDX-License-Identifier: MIT
 
-import sbt.{ URI, url }
+import sbt.{ URI, uri }
 
 object Organization {
   val organization: String = "com.github.sbt"
   val organizationName: String = "sbt"
-  val organizationHomepage: Option[URI] = Some(url("https://www.scala-sbt.org/"))
+  val organizationHomepage: Option[URI] = Some(uri("https://www.scala-sbt.org/"))
 }
